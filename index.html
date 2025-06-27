@@ -13,52 +13,9 @@
         <button onclick="startStopwatch()">Start</button>
         <button onclick="stopStopwatch()">Stop</button>
         <button onclick="resetStopwatch()">Reset</button>
+        <button onclick="lapStopwatch()">Lap</button>
+        <div class="laps" id="laps"></div>
     </div>
-    <script>
-        let startTime = 0;
-        let elapsed = 0;
-        let timerInterval = null;
-
-        function updateDisplay() {
-            let time = elapsed;
-            if (timerInterval) {
-                time += Date.now() - startTime;
-            }
-            let ms = Math.floor((time % 1000) / 10);
-            let s = Math.floor((time / 1000) % 60);
-            let m = Math.floor((time / (1000 * 60)) % 60);
-            let h = Math.floor((time / (1000 * 60 * 60)));
-            document.getElementById('display').textContent =
-                `${h.toString().padStart(2, '0')}:` +
-                `${m.toString().padStart(2, '0')}:` +
-                `${s.toString().padStart(2, '0')}.` +
-                `${ms.toString().padStart(2, '0')}`;
-        }
-
-        function startStopwatch() {
-            if (!timerInterval) {
-                startTime = Date.now();
-                timerInterval = setInterval(updateDisplay, 10);
-            }
-        }
-
-        function stopStopwatch() {
-            if (timerInterval) {
-                elapsed += Date.now() - startTime;
-                clearInterval(timerInterval);
-                timerInterval = null;
-            }
-        }
-
-        function resetStopwatch() {
-            elapsed = 0;
-            startTime = 0;
-            clearInterval(timerInterval);
-            timerInterval = null;
-            updateDisplay();
-        }
-
-        updateDisplay();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 body {
             font-family: Arial, sans-serif;
-            background: #03153f;
+            background: #000000;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -11,7 +11,7 @@ body {
 .stopwatch { 
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #03153f, #03153f);
+            background: linear-gradient(135deg, #000000, #2f3031);
             border-radius: 10px;
             padding: 2em;
             animation: shine 2s infinite alternate;
@@ -29,8 +29,9 @@ body {
 .time {
             font-size: 3em;
             margin-bottom: 1em;
-            margin-left: 15px;
+            margin-left: 66px;
             letter-spacing: 2px;
+            color:#afa7a7;
         } 
 
 button {
@@ -39,13 +40,41 @@ button {
             margin: 0 0.5em;
             border: none;
             border-radius: 5px;
-            background: #03153f;
-            color: hwb(0 100% 0%);
+            background: #000000;
+            color: #afa7a7;
             cursor: pointer;
             transition: background 0.2s;
-            border-color: #0056b3;
+            border-color: #414448;
+            background: linear-gradient(135deg, #000000, #2f3031);
         }
 
 button:hover {
-            background: #7f858c;
+            background: #3b3c3e;
         }
+
+.laps {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5em;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 90%;
+    text-align: left;
+}
+
+#laps li {
+    background: rgba(186,232,229,0.08);
+    color: #afa7a7;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    border-radius: 6px;
+    font-size: 1em;
+    border-left: 4px solid #b6e8e5;
+    transition: background 0.2s;
+}
+
+#laps li:last-child {
+    background: rgba(186,232,229,0.18);
+    font-weight: bold;
+    border-left: 4px solid #f6b400;
+}
